@@ -1,4 +1,10 @@
-export const countries = [
+interface Country {
+  countryName: string;
+  value: string;
+  averageLife: number;
+}
+
+export const countries: Country[] = [
   { countryName: "Afghanistan", value: "afghanistan", averageLife: 64.8 },
   { countryName: "Albania", value: "albania", averageLife: 78.7 },
   { countryName: "Algeria", value: "algeria", averageLife: 76.5 },

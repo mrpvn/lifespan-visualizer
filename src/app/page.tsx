@@ -1,13 +1,22 @@
 "use client"
 
 import CountryAndAgeSelector from "@/components/shared/CountryAndAgeSelector";
+import LivedAndRemainingYear from "@/components/shared/LivedAndRemainingYear";
 import { ModeToggle } from "@/components/shared/ModeToggle";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [age, setAge] = useState('')
-  const [country, setCountry] = useState('')
+  const [age, setAge] = useState<number | undefined>(undefined)
+  const [lifeExpectancy, setLifeExpectancy] = useState<Country>({})
+  const [remainingYears, setRemainingYears] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    if(lifeExpectancy && age) {
+      setRemainingYears(lifeExpectancy - age)
+    }
+  }, [age, lifeExpectancy])
+
   return (
     <section className="min-h-screen p-4 md:p-6 lg:p-8">
       <Card className="max-w-4xl mx-auto">
@@ -22,7 +31,12 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            <CountryAndAgeSelector setAge={setAge} age={age} setCountry={setCountry}/>
+            <CountryAndAgeSelector setAge={setAge} age={age} setLifeExpectancy={setLifeExpectancy}/>
+          </div>
+          <div className="mt-8 space-y-6">
+            
+            <LivedAndRemainingYear livedYears={age} remainingYears={remainingYears}/>
+
           </div>
         </CardContent>
       </Card>
