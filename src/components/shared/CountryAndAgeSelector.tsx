@@ -25,7 +25,7 @@ const CountryAndAgeSelector: React.FC<CountryAndAgeSelectorProp> = ({age, setAge
           </div>
           <div>
             <Label htmlFor="age">Age</Label>
-            <Input id="age" className='mt-1' type="number" min={1} placeholder="Enter your age" value={age} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAge(e.target.value)} />
+            <Input id="age" className='mt-1' type="number" min={1} max={120} placeholder="Enter your age" value={age} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAge(e.target.value)} />
           </div>
         </div>
   )

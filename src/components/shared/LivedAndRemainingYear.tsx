@@ -1,15 +1,15 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 
-const LivedAndRemainingYear = ({livedYears, remainingYears}:{livedYears: number | undefined, remainingYears: number | undefined}) => {
+const LivedAndRemainingYear = ({lifeExpectancy, remainingYears}:{lifeExpectancy: number | undefined, remainingYears: number | undefined}) => {
   return (
     <div className="grid grid-cols-2 gap-4 text-center">
       <Card>
         <CardHeader>
-          <CardTitle>Lived</CardTitle>
+          <CardTitle>Expected Age</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-4xl font-bold">{livedYears ? `${livedYears} years` : "_ _"}</p>
+          <p className="text-4xl font-bold">{lifeExpectancy ? `${lifeExpectancy} years` : "_ _"}</p>
         </CardContent>
       </Card>
       <Card>

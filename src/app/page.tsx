@@ -1,6 +1,7 @@
 "use client"
 
 import CountryAndAgeSelector from "@/components/shared/CountryAndAgeSelector";
+import LifeChart from "@/components/shared/LifeChart";
 import LivedAndRemainingYear from "@/components/shared/LivedAndRemainingYear";
 import { ModeToggle } from "@/components/shared/ModeToggle";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,7 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [age, setAge] = useState<number | undefined>(undefined)
-  const [lifeExpectancy, setLifeExpectancy] = useState<Country>({})
+  const [lifeExpectancy, setLifeExpectancy] = useState<number | undefined>(undefined)
   const [remainingYears, setRemainingYears] = useState<number | undefined>(undefined);
 
   useEffect(() => {
@@ -34,9 +35,8 @@ export default function Home() {
             <CountryAndAgeSelector setAge={setAge} age={age} setLifeExpectancy={setLifeExpectancy}/>
           </div>
           <div className="mt-8 space-y-6">
-            
-            <LivedAndRemainingYear livedYears={age} remainingYears={remainingYears}/>
-
+            <LivedAndRemainingYear lifeExpectancy={lifeExpectancy} remainingYears={remainingYears}/>
+            <LifeChart livedYears={age} remainingYears={remainingYears} lifeExpectancy={lifeExpectancy}/>
           </div>
         </CardContent>
       </Card>
