@@ -6,6 +6,7 @@ import LivedAndRemainingYear from "@/components/shared/LivedAndRemainingYear";
 import { ModeToggle } from "@/components/shared/ModeToggle";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import LifeCountdown from "@/components/shared/LifeCountdown";
 
 export default function Home() {
   const [age, setAge] = useState<number | undefined>(undefined)
@@ -37,6 +38,7 @@ export default function Home() {
           <div className="mt-8 space-y-6">
             <LivedAndRemainingYear lifeExpectancy={lifeExpectancy} remainingYears={remainingYears}/>
             <LifeChart livedYears={age} remainingYears={remainingYears} lifeExpectancy={lifeExpectancy}/>
+            <LifeCountdown remainingYears={remainingYears}/>
           </div>
         </CardContent>
       </Card>

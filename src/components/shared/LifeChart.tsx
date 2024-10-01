@@ -23,7 +23,7 @@ const LifeChart = ({
         { lifeYears: "remainingYears", years: remainingYears, fill: "hsl(var(--muted))"},
       ])
     }
-  }, [livedYears, remainingYears])
+  }, [livedYears, remainingYears, lifeExpectancy])
 
   const timelinePercentage = livedYears && lifeExpectancy ? (livedYears / lifeExpectancy) * 100 : 0
 
@@ -50,23 +50,22 @@ const LifeChart = ({
               ></div>
             </div>
             <div className="mt-2 text-sm text-muted-foreground flex justify-between">
-              {['Birth', 'Childhood', 'Adolescence', 'Adulthood', 'Life Expectancy'].map((label, index) => (
-                <span key={index} className="text-center" style={{width: '20%'}}>{label}</span>
-              ))}
+              <span>Birth</span>
+              <span>Life Expectancy</span>
             </div>
           </CardContent>
         </Card>
       </TabsContent>
 
       <TabsContent value='pie'>
-        <Card className="w-full max-w-md mx-auto">
+        <Card className="w-full mx-auto">
           <CardHeader>
             <CardTitle>Life Years Pie Chart</CardTitle>
             <CardDescription>Visualize your lived and remaining years</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="h-[300px]">
+              <div className="h-[200px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     {chartData.length > 0 && (

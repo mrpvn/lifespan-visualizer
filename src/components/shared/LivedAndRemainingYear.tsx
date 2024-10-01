@@ -6,7 +6,7 @@ const LivedAndRemainingYear = ({lifeExpectancy, remainingYears}:{lifeExpectancy:
     <div className="grid grid-cols-2 gap-4 text-center">
       <Card>
         <CardHeader>
-          <CardTitle>Expected Age</CardTitle>
+          <CardTitle>Expected Life</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-4xl font-bold">{lifeExpectancy ? `${lifeExpectancy} years` : "_ _"}</p>
