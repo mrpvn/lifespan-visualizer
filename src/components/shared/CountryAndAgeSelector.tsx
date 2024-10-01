@@ -16,7 +16,7 @@ const CountryAndAgeSelector: React.FC<CountryAndAgeSelectorProp> = ({age, setAge
               <SelectContent>
                 {
                   countries?.map((country) => (
-                    <SelectItem key={country.value} value={country.averageLife}>{country.countryName}</SelectItem>
+                    <SelectItem key={country.value} value={String(country.averageLife)}>{country.countryName}</SelectItem>
 
                   ))
                 }
