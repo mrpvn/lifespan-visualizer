@@ -15,13 +15,25 @@ const LifeChart = ({
   lifeExpectancy: number | undefined;
 }) => {
   const [chartData, setChartData] = useState<ChartDataType[]>([])
+  const [birthYear, setBirthYear] = useState<number>();
+  const [expectedLife, setExpectedLife] = useState<number | undefined>(undefined);
+
+  function findBirthYearAndExpectedYear(remainingYears: number, livedYears: number) {
+    const endDate = new Date()
+    endDate.setFullYear(endDate.getFullYear() + remainingYears)
+    setExpectedLife(endDate.getFullYear())
+    const birthDate = new Date()
+    birthDate.setFullYear(birthDate.getFullYear() - livedYears)
+    setBirthYear(birthDate.getFullYear())
+  }
   
   useEffect(() => {
-    if (lifeExpectancy !== undefined && remainingYears !== undefined) {
+    if (lifeExpectancy !== undefined && remainingYears !== undefined && livedYears !==undefined) {
       setChartData([
         { lifeYears: "livedYears", years: lifeExpectancy - remainingYears, fill: "hsl(var(--primary))"},
         { lifeYears: "remainingYears", years: remainingYears, fill: "hsl(var(--muted))"},
       ])
+      findBirthYearAndExpectedYear(remainingYears, livedYears)
     }
   }, [livedYears, remainingYears, lifeExpectancy])
 
@@ -50,8 +62,8 @@ const LifeChart = ({
               ></div>
             </div>
             <div className="mt-2 text-sm text-muted-foreground flex justify-between">
-              <span>Birth</span>
-              <span>Life Expectancy</span>
+              <span>{birthYear}</span>
+              <span>{expectedLife}</span>
             </div>
           </CardContent>
         </Card>

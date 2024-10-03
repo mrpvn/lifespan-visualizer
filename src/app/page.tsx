@@ -7,6 +7,7 @@ import { ModeToggle } from "@/components/shared/ModeToggle";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import LifeCountdown from "@/components/shared/LifeCountdown";
+import Footer from "@/components/shared/Footer";
 
 export default function Home() {
   const [age, setAge] = useState<number | undefined>(undefined)
@@ -42,6 +43,7 @@ export default function Home() {
           </div>
         </CardContent>
       </Card>
+      <Footer/>
     </section>
   );
 }
