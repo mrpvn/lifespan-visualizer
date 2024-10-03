@@ -54,18 +54,18 @@ export default function LifeCountdown({ remainingYears }: { remainingYears: numb
   
 
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-gray-900 text-white">
+    <Card className="w-full mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl sm:text-3xl text-center">Your Life Countdown</CardTitle>
-        <CardDescription className="text-gray-400 text-center">
+        <CardTitle className="text-2xl sm:text-3xl">Your Life Countdown</CardTitle>
+        <CardDescription className="text-gray-400">
         <CardDescription>Based on your life expectancy of {remainingYears} years</CardDescription>
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {Object.entries(remainingTime).map(([unit, value]) => (
-            <div key={unit} className="bg-gray-800 rounded-lg p-3 sm:p-4 text-center">
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-400 break-all">
+            <div key={unit} className="bg-primary-foreground rounded-lg p-3 sm:p-4 text-center">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold break-all">
                 {value}
               </div>
               <div className="text-xs sm:text-sm text-gray-400 capitalize">{unit}</div>
